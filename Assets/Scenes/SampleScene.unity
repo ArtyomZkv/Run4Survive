@@ -325,6 +325,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentChunk: {fileID: 0}
+  spawnedChunks: []
+  maxOpDist: 50
+  optimizerCooldownDur: 1
 --- !u!1 &2024149233
 GameObject:
   m_ObjectHideFlags: 0
