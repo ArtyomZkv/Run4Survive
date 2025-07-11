@@ -14,8 +14,11 @@ public class WeaponController : MonoBehaviour
     float currentCooldown;
     public int pierce;
 
+    protected PlayerMovement pm;
+
     protected virtual void Start()
     {
+        pm = FindFirstObjectByType<PlayerMovement>();
         currentCooldown = cooldownDuration; // At the start set the current cooldown to be the cooldown duration
     }
 
