@@ -1,9 +1,10 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefags;
+    public GameObject[] enemyPrefabs;
     
     [HideInInspector]
     public float spawnRadius = 15f;
@@ -17,7 +18,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public Transform player;
 
-    //private List<EnemyBase> activeEnemies = new NUnit.Framework.List<EnemyBase>();
+    private List<EnemyBase> activeEnemies = new List<EnemyBase>();
     
     void Start()
     {
@@ -26,7 +27,7 @@ public class EnemySpawnManager : MonoBehaviour
 
 
     void Update()
-    {
+    {  
         spawnTimer += Time.deltaTime;
 
         if(spawnTimer >= spawnInterval /*&& activeEnemies.Count < maxEnemies*/)
@@ -34,13 +35,11 @@ public class EnemySpawnManager : MonoBehaviour
             spawnTimer = 0f;
             TrySpawnEnemy();
         }
-        /*activeEnemies.RemoveAll(e => e == null);*/
+        activeEnemies.RemoveAll(e => e == null);
     }
     void TrySpawnEnemy()
     {
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        float randomDist = Random.Range(minDistanceToPlayer, spawnRadius);
         Vector2 spawnPosition = (Vector2)player.position + randomDirection * Random.Range(minDistanceToPlayer, spawnRadius);
-        Debug.Log("Direction: " + randomDirection + " Dist: " + randomDist + " Pos: " + spawnPosition);
     }
 }

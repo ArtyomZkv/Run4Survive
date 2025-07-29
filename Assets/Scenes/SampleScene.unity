@@ -391,8 +391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefags: []
-  spawnRadius: 0
-  minDistanceToPlayer: 0
+  spawnRadius: 15
+  minDistanceToPlayer: 10
   spawnTimer: 0
   spawnInterval: 3
   maxEnemies: 0
